@@ -1,11 +1,16 @@
 //CRUD Create Read Update Delete
 
-const mongodb = require('mongodb')
-const MongoClient = mongodb.MongoClient
-
+const { MongoClient } = require('mongodb');
 
 const connectionURL = 'mongodb://127.0.0.1:27017'
+const client = new MongoClient(connectionURL,{monitorCommands:true});
+
 const databaseName = 'task-manager'
 
-MongoClient.connect(connectionURL,{ useNewURLParser: true})
+client.connect();
+const db = client.db(databaseName)
+db.collection('users').insertOne({
+    name: 'Sagar',
+    age: 25
+})  
 
