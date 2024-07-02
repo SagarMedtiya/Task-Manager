@@ -9,12 +9,13 @@ const id = new ObjectId()
 const databaseName = 'task-manager'
 
 client.connect();
-const db = client.db(databaseName)
-db.collection('users').findOne({ name: 'Sagar'},(error, user)=>{
-    if(error){
-        return console.log('Unable to fetch')
-    }
+const db = client.db(databaseName)                                  
 
-    console.log(user)
+db.collection('users').deleteMany({
+    age:17
+}).then((result)=>{
+    console.log(result)
+}).catch((error)=>{
+    console.log(error)
 })
 
