@@ -8,18 +8,21 @@ const User = mongoose.model('User',{
     },
     age:{
         type: Number
+    },
+    description:{
+        
     }
 })
 
 
 const me = new User({
     name: 'Sagar',
-    age: 27,
+    age: 45,
      
 })
 
 me.save().then(()=>{
-    
-}).catch(()=>{
-
+    console.log(me)
+    }).catch((error)=>{
+    console.log(error)
 })
